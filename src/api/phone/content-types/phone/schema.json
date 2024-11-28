@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "phones",
+  "info": {
+    "singularName": "phone",
+    "pluralName": "phones",
+    "displayName": "phone"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone_1": {
+      "type": "string"
+    },
+    "phone_2": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone_3": {
+      "type": "string"
+    }
+  }
+}

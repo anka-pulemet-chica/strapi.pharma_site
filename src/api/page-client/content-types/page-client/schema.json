@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_clients",
+  "info": {
+    "singularName": "page-client",
+    "pluralName": "page-clients",
+    "displayName": "page client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

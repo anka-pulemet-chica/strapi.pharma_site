@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "numbers_2_3s",
+  "info": {
+    "singularName": "numbers-2-3",
+    "pluralName": "numbers-2-3s",
+    "displayName": "Numbers 2.3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "tag": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "list": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    }
+  }
+}
