@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "numbers_2_1s",
+  "kind": "singleType",
+  "collectionName": "page_advantages",
   "info": {
-    "singularName": "numbers-2-1",
-    "pluralName": "numbers-2-1s",
-    "displayName": "Page advantages: Promotion and sales of products",
+    "singularName": "page-advantage",
+    "pluralName": "page-advantages",
+    "displayName": "Page advantage",
     "description": ""
   },
   "options": {
@@ -16,48 +16,47 @@
     }
   },
   "attributes": {
-    "title": {
-      "type": "string",
+    "heading": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "text"
     },
-    "list": {
-      "type": "blocks",
+    "promotion": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "blocks"
     },
-    "img": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
+    "logistics": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "ending": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "logistics_img": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "tag": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "subtitle": {
-      "type": "string",
+      "type": "media",
+      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true

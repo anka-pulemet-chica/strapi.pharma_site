@@ -407,83 +407,6 @@ export interface ApiAddressAddress extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiClientClient extends Struct.CollectionTypeSchema {
-  collectionName: 'clients';
-  info: {
-    description: '';
-    displayName: 'client';
-    pluralName: 'clients';
-    singularName: 'client';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    client_time: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heading_nums: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heading_nums_desc: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::client.client'>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    short_desc: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    tag: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -591,7 +514,22 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    about_first_image: Schema.Attribute.Media<
+    about_images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    advantages: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    advantages_image_1: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -599,10 +537,15 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    about_images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    advantages_image_2: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
     > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    advantages_logistics: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -649,7 +592,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    herosection_image: Schema.Attribute.Media<
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    >;
+    mission_image_1: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -657,12 +605,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::home-page.home-page'
-    >;
-    mission_image: Schema.Attribute.Media<
+    mission_image_2: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -698,12 +641,6 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    policy: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -764,7 +701,7 @@ export interface ApiNumbers21Numbers21 extends Struct.CollectionTypeSchema {
   collectionName: 'numbers_2_1s';
   info: {
     description: '';
-    displayName: 'Numbers 2.1';
+    displayName: 'Page advantages: Promotion and sales of products';
     pluralName: 'numbers-2-1s';
     singularName: 'numbers-2-1';
   };
@@ -829,7 +766,7 @@ export interface ApiNumbers22Numbers22 extends Struct.CollectionTypeSchema {
   collectionName: 'numbers_2_2s';
   info: {
     description: '';
-    displayName: 'numbers 2.2';
+    displayName: 'Page advantages: blocks with numbers';
     pluralName: 'numbers-2-2s';
     singularName: 'numbers-2-2';
   };
@@ -1018,6 +955,127 @@ export interface ApiNumbers3Numbers3 extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageAboutUsPageAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'page_about_uses';
+  info: {
+    description: '';
+    displayName: 'Page about us';
+    pluralName: 'page-about-uses';
+    singularName: 'page-about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    about: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ethics: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ethics_title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-about-us.page-about-us'
+    >;
+    policy: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageAdvantagePageAdvantage extends Struct.SingleTypeSchema {
+  collectionName: 'page_advantages';
+  info: {
+    description: '';
+    displayName: 'Page advantage';
+    pluralName: 'page-advantages';
+    singularName: 'page-advantage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ending: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heading: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-advantage.page-advantage'
+    >;
+    logistics: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logistics_img: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    promotion: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1247,6 +1305,7 @@ export interface ApiPageVacancyPageVacancy extends Struct.SingleTypeSchema {
 export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
   collectionName: 'partners';
   info: {
+    description: '';
     displayName: 'partner';
     pluralName: 'partners';
     singularName: 'partner';
@@ -1275,6 +1334,12 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1287,6 +1352,12 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    short_desc: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     tag: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1919,7 +1990,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::address.address': ApiAddressAddress;
-      'api::client.client': ApiClientClient;
       'api::footer.footer': ApiFooterFooter;
       'api::history.history': ApiHistoryHistory;
       'api::home-page.home-page': ApiHomePageHomePage;
@@ -1928,6 +1998,8 @@ declare module '@strapi/strapi' {
       'api::numbers-2-3.numbers-2-3': ApiNumbers23Numbers23;
       'api::numbers-2-4.numbers-2-4': ApiNumbers24Numbers24;
       'api::numbers-3.numbers-3': ApiNumbers3Numbers3;
+      'api::page-about-us.page-about-us': ApiPageAboutUsPageAboutUs;
+      'api::page-advantage.page-advantage': ApiPageAdvantagePageAdvantage;
       'api::page-client.page-client': ApiPageClientPageClient;
       'api::page-contact.page-contact': ApiPageContactPageContact;
       'api::page-history.page-history': ApiPageHistoryPageHistory;

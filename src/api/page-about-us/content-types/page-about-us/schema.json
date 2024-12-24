@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "numbers_2_2s",
+  "kind": "singleType",
+  "collectionName": "page_about_uses",
   "info": {
-    "singularName": "numbers-2-2",
-    "pluralName": "numbers-2-2s",
-    "displayName": "Page advantages: blocks with numbers",
+    "singularName": "page-about-us",
+    "pluralName": "page-about-uses",
+    "displayName": "Page about us",
     "description": ""
   },
   "options": {
@@ -16,37 +16,37 @@
     }
   },
   "attributes": {
-    "number": {
-      "type": "string",
+    "about": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "name": {
-      "type": "string",
+    "ethics": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "description": {
-      "type": "string",
+    "policy": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "number_desc": {
-      "type": "string",
+    "ethics_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string"
     }
   }
 }
